@@ -1,0 +1,217 @@
+{
+  "session": {
+    "time": "2026-06-19T10:22:25.748199",
+    "duration_sec": 1.11,
+    "packets": 200
+  },
+  "summary": {
+    "total_packets": 200,
+    "total_alerts": 10,
+    "clean_packets": 35,
+    "blocked_ips": [
+      "185.220.101.5",
+      "77.247.181.163",
+      "203.0.113.45",
+      "45.33.32.156",
+      "194.165.16.11"
+    ],
+    "severity": {
+      "CRITICAL": 5,
+      "HIGH": 5,
+      "MEDIUM": 0,
+      "LOW": 0
+    },
+    "categories": {
+      "Web Attack": 8,
+      "Malware": 1,
+      "Exploit": 1
+    },
+    "protocols": {
+      "TCP": 160,
+      "UDP": 35,
+      "ICMP": 5
+    }
+  },
+  "alerts": [
+    {
+      "alert_id": "NIDS-94A21B40",
+      "rule_id": 1009,
+      "severity": "HIGH",
+      "category": "Web Attack",
+      "message": "Directory Traversal Attack",
+      "packet": {
+        "src": "45.33.32.156:45295",
+        "dst": "192.168.1.10:80",
+        "protocol": "tcp",
+        "payload": "GET /../etc/passwd HTTP/1.1",
+        "size": 128,
+        "flags": "ACK",
+        "timestamp": "10:22:24"
+      },
+      "action_taken": "RATE_LIMITED + LOGGED",
+      "timestamp": "2026-06-19 10:22:24"
+    },
+    {
+      "alert_id": "NIDS-6C11F4C3",
+      "rule_id": 1002,
+      "severity": "CRITICAL",
+      "category": "Web Attack",
+      "message": "SQL Injection Attempt",
+      "packet": {
+        "src": "203.0.113.45:11518",
+        "dst": "10.0.0.5:80",
+        "protocol": "tcp",
+        "payload": "GET /?id=' OR '1'='1 HTTP/1.1",
+        "size": 180,
+        "flags": "ACK",
+        "timestamp": "10:22:24"
+      },
+      "action_taken": "BLOCKED 203.0.113.45",
+      "timestamp": "2026-06-19 10:22:24"
+    },
+    {
+      "alert_id": "NIDS-95F6DD4A",
+      "rule_id": 1002,
+      "severity": "CRITICAL",
+      "category": "Web Attack",
+      "message": "SQL Injection Attempt",
+      "packet": {
+        "src": "194.165.16.11:61517",
+        "dst": "192.168.1.20:80",
+        "protocol": "tcp",
+        "payload": "GET /?id=' OR '1'='1 HTTP/1.1",
+        "size": 180,
+        "flags": "ACK",
+        "timestamp": "10:22:24"
+      },
+      "action_taken": "BLOCKED 194.165.16.11",
+      "timestamp": "2026-06-19 10:22:24"
+    },
+    {
+      "alert_id": "NIDS-7D5B3CB5",
+      "rule_id": 1013,
+      "severity": "CRITICAL",
+      "category": "Web Attack",
+      "message": "Command Injection Attempt",
+      "packet": {
+        "src": "77.247.181.163:3825",
+        "dst": "10.0.0.5:80",
+        "protocol": "tcp",
+        "payload": "GET /cmd?exec=; cat /etc/passwd HTTP/1.1",
+        "size": 150,
+        "flags": "ACK",
+        "timestamp": "10:22:24"
+      },
+      "action_taken": "BLOCKED 77.247.181.163",
+      "timestamp": "2026-06-19 10:22:24"
+    },
+    {
+      "alert_id": "NIDS-A686597A",
+      "rule_id": 1015,
+      "severity": "HIGH",
+      "category": "Malware",
+      "message": "Suspicious HTTPS C2 Beacon",
+      "packet": {
+        "src": "198.51.100.22:27318",
+        "dst": "192.168.1.10:443",
+        "protocol": "tcp",
+        "payload": "GET /beacon HTTP/1.1\r\nUser-Agent: python-requests/2.28",
+        "size": 200,
+        "flags": "ACK",
+        "timestamp": "10:22:24"
+      },
+      "action_taken": "RATE_LIMITED + LOGGED",
+      "timestamp": "2026-06-19 10:22:24"
+    },
+    {
+      "alert_id": "NIDS-9301A5DB",
+      "rule_id": 1009,
+      "severity": "HIGH",
+      "category": "Web Attack",
+      "message": "Directory Traversal Attack",
+      "packet": {
+        "src": "185.220.101.5:22558",
+        "dst": "192.168.1.20:80",
+        "protocol": "tcp",
+        "payload": "GET /../etc/passwd HTTP/1.1",
+        "size": 128,
+        "flags": "ACK",
+        "timestamp": "10:22:24"
+      },
+      "action_taken": "RATE_LIMITED + LOGGED",
+      "timestamp": "2026-06-19 10:22:24"
+    },
+    {
+      "alert_id": "NIDS-8198C98E",
+      "rule_id": 1009,
+      "severity": "HIGH",
+      "category": "Web Attack",
+      "message": "Directory Traversal Attack",
+      "packet": {
+        "src": "45.33.32.156:59804",
+        "dst": "192.168.1.20:80",
+        "protocol": "tcp",
+        "payload": "GET /../etc/passwd HTTP/1.1",
+        "size": 128,
+        "flags": "ACK",
+        "timestamp": "10:22:24"
+      },
+      "action_taken": "RATE_LIMITED + LOGGED",
+      "timestamp": "2026-06-19 10:22:24"
+    },
+    {
+      "alert_id": "NIDS-9D3FEAF4",
+      "rule_id": 1008,
+      "severity": "CRITICAL",
+      "category": "Exploit",
+      "message": "Metasploit Default Port Activity",
+      "packet": {
+        "src": "185.220.101.5:63507",
+        "dst": "192.168.1.30:4444",
+        "protocol": "tcp",
+        "payload": "\u0090\u0090\u0090SHELLCODE\u0000",
+        "size": 300,
+        "flags": "ACK",
+        "timestamp": "10:22:24"
+      },
+      "action_taken": "BLOCKED 185.220.101.5",
+      "timestamp": "2026-06-19 10:22:24"
+    },
+    {
+      "alert_id": "NIDS-8DFFC9AF",
+      "rule_id": 1013,
+      "severity": "CRITICAL",
+      "category": "Web Attack",
+      "message": "Command Injection Attempt",
+      "packet": {
+        "src": "45.33.32.156:10130",
+        "dst": "192.168.1.10:80",
+        "protocol": "tcp",
+        "payload": "GET /cmd?exec=; cat /etc/passwd HTTP/1.1",
+        "size": 150,
+        "flags": "ACK",
+        "timestamp": "10:22:24"
+      },
+      "action_taken": "BLOCKED 45.33.32.156",
+      "timestamp": "2026-06-19 10:22:24"
+    },
+    {
+      "alert_id": "NIDS-BD71C549",
+      "rule_id": 1003,
+      "severity": "HIGH",
+      "category": "Web Attack",
+      "message": "XSS Attack Detected",
+      "packet": {
+        "src": "198.51.100.22:53546",
+        "dst": "192.168.1.20:80",
+        "protocol": "tcp",
+        "payload": "GET /?q=<script>alert(1)</script> HTTP/1.1",
+        "size": 160,
+        "flags": "ACK",
+        "timestamp": "10:22:25"
+      },
+      "action_taken": "RATE_LIMITED + LOGGED",
+      "timestamp": "2026-06-19 10:22:25"
+    }
+  ]
+}
